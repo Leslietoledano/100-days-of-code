@@ -1,0 +1,52 @@
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    height: 100%;
+    background-image: url(wood.jpg);
+    background-size: cover;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    /*border: 1px solid red;*/
+    padding: 0;
+    align-items: center;
+}
+
+.key {
+    flex-grow: none;
+    font-weight: bold;
+    box-shadow: unset;
+    background-color: rgba(0, 128, 128, 0.565);
+    color: white;
+    list-style-type: none;
+    margin: 0.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    min-width: 100px;
+}
+
+.box {
+    padding: 1rem;
+    transition: all 0.3s;
+    border: 2px solid teal;
+    background-color: teal;
+}
+
+
+.active div:first-child{
+    border: 2px solid white;
+    transform: translate(-1rem,-1rem);
+}
