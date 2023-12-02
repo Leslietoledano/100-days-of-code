@@ -1,0 +1,114 @@
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    height: 100%;
+    background-color: black;
+}
+
+.bar-element {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    z-index: 10;
+}
+
+.bar-element span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg));
+    inset: -20px;
+    text-align: center;
+}
+
+.bar-element span p {
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background-color: rgb(190, 77, 190);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+
+.bar-element span:nth-child(5n) p{
+    height: 20px;
+    width: 4px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.clock-face {
+    border-radius: 1000px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    background-color: rgb(234, 208, 244);
+}
+
+
+.clock-hours{
+    width: 40%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    height: 5px;
+    background-color: black;
+    transform: translate(-100%,-50%) rotate(90deg);
+    transform-origin: 100%;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.07, 3.84, 0.58, 1);
+}
+.clock-minutes{
+    width: 50%;
+    position: absolute;
+    top:50%;
+    height: 3px;
+    background-color: black;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.07, 3.84, 0.58, 1);
+    
+}
+.clock-seconds{
+    width: 50%;
+    position: absolute;
+    top:50%;
+    height: 2px;
+    background-color: red;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.07, 3.84, 0.58, 1) !important;
+}
+
+.clock-center{
+    border: 1px solid black;
+    background-color: white;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    border-radius: 100px;
+
+}
+
+.full-circle{
+    transition: none;
+}
