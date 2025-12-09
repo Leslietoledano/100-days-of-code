@@ -1,6 +1,44 @@
 <html>
+    <head>
+        <title>Palette Generator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
     <body>
-        <h2>Color Palette</h2>
-        <p>This is a modification test</p>
+        <header>
+            <h1>Color Palette Generator</h1>
+            <p class="subtitle">Brand Discovery Tool</p>
+        </header>
+
+        <section class="filters">
+            <div class="filter-group">
+                <label>Category</label>
+                <select id="filter-category">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Type</label>
+                <select id="filter-type">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Niche</label>
+                <select id="filter-niche">
+                    <option value="">Any</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="palette-container" id="palette"></section>
+
+        <div class="actions">
+            <button id="generate-btn">Generate Palette</button>
+        </div>
+
+        <script src="data.js"></script>
+        <script src="logic.js"></script>
     </body>
 </html>
