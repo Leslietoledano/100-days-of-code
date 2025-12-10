@@ -8,7 +8,7 @@
 body {
 	background: #f5f5f5;
 	color: #222;
-	padding: 30px;
+	padding: 80px 50px;
 	max-width: 900px;
 	margin: auto;
 }
@@ -18,17 +18,49 @@ header {
 	margin-bottom: 30px;
 }
 
-.subtitle {
-	color: #555;
-	font-size: 14px;
-	margin-top: 4px;
+
+@font-face{
+	font-family: BebasNeue;
+	src: url('./fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: Inter;
+	src:url('./fonts/Inter-VariableFont_opsz\,wght.ttf');
+}
+
+
+
+
+h1{
+	font-family: BebasNeue;
+	letter-spacing: 0.05rem;
+	font-size: 3.5rem;
+	line-height: 1;
+	margin-bottom: 0.5rem;
+	
+}
+
+p{
+	font-family: Inter;
+	font-size: 1rem;
+}
+
+label{
+	font-family: Inter;
+	font-size: 0.7rem;
+	margin-bottom: 0.2rem;
+}
+
+.subtitle{
+	color:#9f9f9f;
 }
 
 .filters {
 	display: flex;
-	gap: 20px;
-	justify-content: center;
+	justify-content: end;
 	margin-bottom: 30px;
+	margin-top: 50px;
 	flex-wrap: wrap;
 }
 
@@ -36,28 +68,28 @@ header {
 	display: flex;
 	flex-direction: column;
 	font-size: 14px;
+	width: 100%;
 }
 
 select {
-	padding: 8px 10px;
+	padding: 2px 10px;
 	border-radius: 8px;
 	border: 1px solid #ccc;
 	background: white;
 }
 
 .palette-container {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 10px;
+	grid-template-columns: repeat(1, 1fr);
 	margin-bottom: 40px;
+	display: grid;
+	gap: 5px;
 }
 
 .color-card {
 	border-radius: 12px;
-	height: 140px;
+	height: 3rem;
 	display: flex;
-	align-items: flex-end;
-	justify-content: center;
+	align-items: center;
 	padding: 10px;
 	color: white;
 	font-weight: 600;
@@ -81,4 +113,41 @@ button {
 
 button:hover {
 	opacity: 0.85;
+}
+
+/* sm */
+@media (width >= 40rem){
+	h1 {
+		font-size: 4.5rem;
+	}
+	p{
+		font-size: 1.3rem;
+	}
+	.palette-container{
+		grid-template-columns: repeat(5, 1fr);
+	}
+	.color-card{
+		height: 140px;
+		align-items: flex-end;
+		justify-content: center;
+	}
+	.filters {
+		gap:20px;
+	}
+	.filter-group{
+		width: auto;
+	}
+	select{
+		padding: 7px 10px;
+	}
+}
+
+/* md */
+@media (width >= 48rem){
+	h1 {
+		font-size: 5.5rem;
+	}
+	p{
+		font-size: 1.5em;
+	}
 }
