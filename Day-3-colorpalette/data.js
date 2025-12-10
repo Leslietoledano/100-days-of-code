@@ -13,8 +13,7 @@ window.PALETTE_DATA = {
     ],
 
     niches: [
-        "Medical", "Restaurant", "Technology", "Clothing brand",
-        "Products", "Architecture", "Interior design", "Food",
-        "Snacks", "Jewelry", "Nail Artist", "Creative"
+        "Medical", "Restaurant", "Technology","Architecture", 
+        "Jewerly","Interior design","Creative"
     ]
 };
