@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Inter', sans-serif;
+	position: relative;
 }
 
 body {
@@ -29,6 +30,10 @@ header {
 	src:url('./fonts/Inter-VariableFont_opsz\,wght.ttf');
 }
 
+@font-face{
+	font-family: SourceCodePro;
+	src:url('./fonts/SourceCodePro-VariableFont_wght.ttf')
+}
 
 
 
@@ -94,10 +99,23 @@ select {
 	color: white;
 	font-weight: 600;
 	font-size: 14px;
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .actions {
 	text-align: center;
+}
+
+.footer{
+	color:#bebebe;
+	position: absolute;
+	bottom:15px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: SourceCodePro;
+	font-size: 12px;
 }
 
 button {
@@ -150,4 +168,12 @@ button:hover {
 	p{
 		font-size: 1.5em;
 	}
+}
+
+
+@starting-style {
+  .color-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
