@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pomodoro Timer</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Pomodoro Timer</h1>
+            <p>Select Bellow the deep focus time for your sessions </p>
+        </header>
+        <section class="filters-time">
+            <input type="radio" id="15min" name="time" value="15"/>
+            <label for="15min">15 Minutes</label>
+
+            <input type="radio" id="25min" name="time" value="25"/>
+            <label for="25min">25 Minutes</label>
+
+            <input type="radio" id="30min" name="time" value="30"/>
+            <label for="30min">30 Minutes</label>
+
+            <input type="radio" id="60min" name="time" value="60"/>
+            <label for="60min">60 Minutes</label>
+
+            <button id="start-timer-btn">Start</button>
+        </section>
+        <section>
+            <div id="visual"> Image goes here</div>
+            <div id="sesion-information">
+                <div class="sesion-title">Session #<span>n</span></div>
+                <div class="sesion-timer">00:00</div>
+            </div>
+        </section>
+
+        <script src="logic.js"></script>
+    </body>
+</html>
