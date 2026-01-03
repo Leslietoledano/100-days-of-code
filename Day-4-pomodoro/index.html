@@ -10,24 +10,45 @@
             <p>Select Bellow the deep focus time for your sessions </p>
         </header>
         <section class="filters-time">
-            <input type="radio" id="15min" name="time" value="15"/>
-            <label for="15min">15 Minutes</label>
+            <div class="time-options">
+                <input type="radio" id="1min" name="time" value="1"/>
+                <label for="1min">1 Minutes</label>
 
-            <input type="radio" id="25min" name="time" value="25"/>
-            <label for="25min">25 Minutes</label>
+                <input type="radio" id="15min" name="time" value="15"/>
+                <label for="15min">15 Minutes</label>
 
-            <input type="radio" id="30min" name="time" value="30"/>
-            <label for="30min">30 Minutes</label>
+                <input type="radio" id="25min" name="time" value="25"/>
+                <label for="25min">25 Minutes</label>
 
-            <input type="radio" id="60min" name="time" value="60"/>
-            <label for="60min">60 Minutes</label>
+                <input type="radio" id="30min" name="time" value="30"/>
+                <label for="30min">30 Minutes</label>
+
+                <input type="radio" id="60min" name="time" value="60"/>
+                <label for="60min">60 Minutes</label>
+            </div>
+            <div class="break-options">
+                <input type="radio" id="10min" name="break" value="10"/>
+                <label for="10min">10 Minutes</label>
+
+                <input type="radio" id="15min" name="break" value="15"/>
+                <label for="15min">15 Minutes</label>
+
+                <input type="radio" id="25min" name="break" value="25"/>
+                <label for="25min">25 Minutes</label>
+            </div>
+            <div>
+                <label for="sessions-count">Number of Sessions:</label>
+                <input type="number" id="sessions-count" name="sessions-count" min="1" max="10" value="4"/>
+            </div>
+
 
             <button id="start-timer-btn">Start</button>
         </section>
         <section>
             <div id="visual"> Image goes here</div>
             <div id="sesion-information">
-                <div class="sesion-title">Session #<span>n</span></div>
+                <div class="sesion-title">Session Mode:<span id="current-session-mode">n</span></div>
+                <div class="sesion-subtitle">Total Sessions:<span id="total-sessions">n</span></div>
                 <div class="sesion-timer">00:00</div>
             </div>
         </section>
