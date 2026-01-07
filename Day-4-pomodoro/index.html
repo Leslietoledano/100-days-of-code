@@ -10,6 +10,7 @@
             <p>Select Bellow the deep focus time for your sessions </p>
         </header>
         <section class="filters-time">
+            <div>Work Period:</div>
             <div class="time-options">
                 <input type="radio" id="1min" name="time" value="1"/>
                 <label for="1min">1 Minutes</label>
@@ -26,9 +27,10 @@
                 <input type="radio" id="60min" name="time" value="60"/>
                 <label for="60min">60 Minutes</label>
             </div>
+            <div>Break Period:</div>
             <div class="break-options">
-                <input type="radio" id="10min" name="break" value="10"/>
-                <label for="10min">10 Minutes</label>
+                <input type="radio" id="1min" name="break" value="1"/>
+                <label for="1min">1 Minute</label>
 
                 <input type="radio" id="15min" name="break" value="15"/>
                 <label for="15min">15 Minutes</label>
@@ -49,7 +51,7 @@
             <div id="sesion-information">
                 <div class="sesion-title">Session Mode:<span id="current-session-mode">n</span></div>
                 <div class="sesion-subtitle">Total Sessions:<span id="total-sessions">n</span></div>
-                <div class="sesion-timer">00:00</div>
+                <div id="sesion-timer">00:00</div>
             </div>
         </section>
 

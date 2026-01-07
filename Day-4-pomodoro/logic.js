@@ -16,8 +16,9 @@ function startSesion(){
     }
 
     let selectedTime = document.querySelector('input[name="time"]:checked').value;
-    let sessionsCounter = document.getElementById('sessions-count').value;
     let selectedBreak = document.querySelector('input[name="break"]:checked').value;
+    let sessionsCounter = document.getElementById('sessions-count').value;
+    
 
     //Starting the first session
     currentSesion = 1;
@@ -37,10 +38,10 @@ function startSesion(){
 
 function startTimer(mode, sessionData) {
     let { totalSeconds, totalBreakSeconds, sessionsCounter, selectedTime } = sessionData;
-    let isWorkMode = mode === 'work';
+    let isWorkMode = mode === 'work'; //This will return a true or false
 
     //Determine duration and display text
-    let duration = isWorkMode ? totalSeconds : totalBreakSeconds;
+    let duration = isWorkMode ? totalSeconds : totalBreakSeconds; // If work mode, use totalSeconds else totalBreakSeconds
     let timerDisplay = document.getElementById('sesion-timer');
     let currentSesionModeDisplay = document.getElementById('current-session-mode');
     let totalSesionsDisplay = document.getElementById('total-sessions');
@@ -49,34 +50,47 @@ function startTimer(mode, sessionData) {
     currentSesionModeDisplay.textContent = `${isWorkMode ? 'Focus Time' : 'Break'}`;
 
     //Update the UI
-    document.body.className = isWork ? 'work-phase' : 'break-phase';
+    document.body.className = isWorkMode ? 'work-phase' : 'break-phase';
 
     //Countdown logic
     globalIntervalId = setInterval(() => {
 
-        // Stop the current interval
+        // Is no more time left
         if (duration <= 0) {
-            clearInterval(globalIntervalId);
-            globalIntervalId = null;
+            clearInterval(globalIntervalId); // Clear the interval when time is up
+            globalIntervalId = null; // Reset the interval ID
 
             console.log(`${mode} phase ended.`);
 
+            // Check if we need to start a break or a new work session
             if(isWorkMode){
-                if (currentSession < sessionsCounter) {
+                //This mean duration id over for work session, so start break
+                if(currentSesion < sessionsCounter)
+                {
                     startTimer('break', sessionData);
-                } else {
-                    // All sessions complete
-                    timerDisplay.textContent = "DONE!";
-                    document.body.className = 'finished';
-                    console.log("All sessions finished!");
                 }
+                else{
+                    timerDisplay.textContent = "All sessions completed! Great job!";
+                    currentSesionModeDisplay.textContent = `Completed`;
+                    document.body.className = 'completed-phase';
+                }
+                
             }
             else{
-
+                //This mean duration id over for break session, so check if we need to start a new work session
+                 currentSesion++;
+                if(currentSesion <= sessionsCounter){
+                    startTimer('work', sessionData);
+                }
             }
+            
+        }
+        else{ // There is still time left so lets continue counting down
+            duration--;
+            timerDisplay.textContent = formatTime(duration);
         }
 
-    });
+    }, 1000); // Run every second
 
 
 }
