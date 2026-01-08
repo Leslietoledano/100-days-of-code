@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let globalIntervalId = null;
 let currentSesion = 0;
+let percent = 0;
+const circle = document.getElementById('progress-circle');
+const timerSettings = document.getElementById('timer-settings');
+const main = document.querySelector('main');
+const circumference = 339.292; // 2 * pi * r (r=54)
 
 function startSesion(){
     //Clear any existing intervals
@@ -46,14 +51,20 @@ function startTimer(mode, sessionData) {
     let currentSesionModeDisplay = document.getElementById('current-session-mode');
     let totalSesionsDisplay = document.getElementById('total-sessions');
 
-    totalSesionsDisplay.textContent =  `${currentSesion} of ${sessionsCounter}`;
+    totalSesionsDisplay.textContent =  `${selectedTime}min Session -- ${currentSesion} of ${sessionsCounter}`;
     currentSesionModeDisplay.textContent = `${isWorkMode ? 'Focus Time' : 'Break'}`;
 
     //Update the UI
-    document.body.className = isWorkMode ? 'work-phase' : 'break-phase';
+    timerSettings.classList.add('hidden', 'transition', 'duration-800');
+    main.classList.remove('md:grid-cols-2');
+    
 
     //Countdown logic
     globalIntervalId = setInterval(() => {
+
+        //Calculate and update progress
+        percent = ((isWorkMode ? totalSeconds - duration : totalBreakSeconds - duration) / (isWorkMode ? totalSeconds : totalBreakSeconds)) * 100;
+        setProgress(percent);
 
         // Is no more time left
         if (duration <= 0) {
@@ -70,7 +81,7 @@ function startTimer(mode, sessionData) {
                     startTimer('break', sessionData);
                 }
                 else{
-                    timerDisplay.textContent = "All sessions completed! Great job!";
+                    timerDisplay.textContent = "Great job!";
                     currentSesionModeDisplay.textContent = `Completed`;
                     document.body.className = 'completed-phase';
                 }
@@ -98,7 +109,10 @@ function startTimer(mode, sessionData) {
 
 
 
-
+function setProgress(percent) {
+  const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
+}
 
 function formatTime(seconds) {
     let mins = Math.floor(seconds / 60);
